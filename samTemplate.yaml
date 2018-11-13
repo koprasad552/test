@@ -2,19 +2,10 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: 'Deliforce web Lambda'
 Parameters: 
-  bucketName: 
-    Type: String
-    Default: devuser-constant
-    AllowedValues: 
-      - lambda-constant
-      - devuser-constant
-    Description: Enter lambda-constant,devuse-constant Default is devuser-constant.
-  constantFileName:
-    Type: String
-    Default: constant.json
-    AllowedValues:
-      - constant.json
-    Description: Enter constant.json
+  Environment:
+    Variables:
+      bucketName: devuser-constant
+      constantFileName: constant.json
 
 Resources:
   ApiGateway:
