@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Deliforce web Lambda'
+Resources:
+  ApiGateway:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: webstage
+      Name: Web-api
+      DefinitionUri: ./deliwebapi.yaml
+  DeliforcebackgroundjobMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: backGroundjob
+       Timeout: 300
+       Handler: index.handler
+       Runtime: nodejs6.10
+       CodeUri: ./backGroundJob
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::786724127547:role/DevUser-poc
+       Environment:
+         Variables:
+           bucketName: devuser-constant
+           constantFileName: constant.json
+
+  DeliforceteamfetchteamsMethod:
+     Type: AWS::Serverless::Function
+     Properties:
+       FunctionName: Deliforce_team_fetchTeam
+       Timeout: 300
+       Handler: index.handler
+       Runtime: nodejs6.10
+       CodeUri: ./Deliforce_team_fetchTeam
+       Policies: AWSLambdaFullAccess
+       Role: arn:aws:iam::786724127547:role/DevUser-poc
+       Environment:
+         Variables:
+           bucketName: devuser-constant
+           constantFileName: constant.json

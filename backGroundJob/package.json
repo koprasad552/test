@@ -1,0 +1,17 @@
+{
+  "name": "backgroundjob",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "aws-sdk": "^2.327.0",
+    "moment-timezone": "^0.5.21",
+    "mongoose": "^5.2.14"
+  }
+}
