@@ -1,6 +1,20 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: 'Deliforce web Lambda'
+Parameters: 
+  buckettypeParameter: 
+    Type: String
+    Default: devuser-constant
+    AllowedValues: 
+      - lambda-constant
+      - devuser-constant
+    Description: Enter lambda-constant,devuse-constant Default is devuser-constant.
+  constantFileName:
+    Type: String
+    Default: constant.json
+    AllowedValues:
+      - constant.json
+    Description: Enter constant.json
 Resources:
   ApiGateway:
     Type: 'AWS::Serverless::Api'
@@ -8,10 +22,7 @@ Resources:
       StageName: webstage
       Name: Web-api
       DefinitionUri: ./deliwebapi.yaml
-Environment:
-  Variables:
-    bucketName: devuser-constant
-    constantFileName: constant.json
+
 
   DeliforcebackgroundjobMethod:
      Type: AWS::Serverless::Function
@@ -23,10 +34,7 @@ Environment:
        CodeUri: ./backGroundJob
        Policies: AWSLambdaFullAccess
        Role: arn:aws:iam::786724127547:role/DevUser-poc
-       Environment:
-         Variables:
-           bucketName: devuser-constant
-           constantFileName: constant.json
+       
 
   DeliforceteamfetchteamsMethod:
      Type: AWS::Serverless::Function
