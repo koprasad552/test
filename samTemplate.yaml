@@ -9,9 +9,9 @@ Resources:
       Name: Web-api
       DefinitionUri: ./deliwebapi.yaml
 Environment:
-   Variables:
-     bucketName: devuser-constant
-     constantFileName: constant.json
+  Variables:
+    bucketName: devuser-constant
+    constantFileName: constant.json
 
   DeliforcebackgroundjobMethod:
      Type: AWS::Serverless::Function
