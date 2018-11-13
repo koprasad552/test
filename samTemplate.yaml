@@ -3,9 +3,6 @@ Transform: AWS::Serverless-2016-10-31
 Description: 'Deliforce web Lambda'
 Globals:
   Function:
-    Runtime: nodejs6.10
-    Timeout: 300
-    Handler: index.handler
     Environment:
       Variables:
         bucketName: devuser-constant
