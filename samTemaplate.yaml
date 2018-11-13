@@ -8,6 +8,11 @@ Resources:
       StageName: webstage
       Name: Web-api
       DefinitionUri: ./deliwebapi.yaml
+Environment:
+   Variables:
+     bucketName: devuser-constant
+     constantFileName: constant.json
+
   DeliforcebackgroundjobMethod:
      Type: AWS::Serverless::Function
      Properties:
@@ -33,7 +38,4 @@ Resources:
        CodeUri: ./Deliforce_team_fetchTeam
        Policies: AWSLambdaFullAccess
        Role: arn:aws:iam::786724127547:role/DevUser-poc
-       Environment:
-         Variables:
-           bucketName: devuser-constant
-           constantFileName: constant.json
+       
