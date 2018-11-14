@@ -14,7 +14,7 @@ Resources:
     Properties:
       StageName: webstage
       Name: Web-api
-      DefinitionUri: ./deliwebapi.yaml
+      DefinitionUri: s3://devuser-swagger/deliwebapi.yaml
 
 
   DeliforcebackgroundjobMethod:
